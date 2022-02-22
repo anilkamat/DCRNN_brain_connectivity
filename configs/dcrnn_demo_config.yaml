@@ -23,7 +23,7 @@ train:
   base_lr: 0.1
   dropout: 0
   epoch: 0
-  epochs: 70
+  epochs: 7 #70
   epsilon: 0.001
   lr_decay_ratio: 0.1
   max_grad_norm: 5
