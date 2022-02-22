@@ -2,7 +2,7 @@ base_dir: ./results
 data:
   batch_size: 32
   dataset_dir: ./MRI_data/training_samples
-  graph_filename: ./MRI_data/SC_matrix/artificial_SC_matrix.npy
+  graph_filename: ./MRI_data/SC_matrix/SC_mat.npy
   test_batch_size: 32
   val_batch_size: 32
 log_level: INFO
@@ -13,7 +13,7 @@ model:
   input_dim: 1
   l1_decay: 0
   max_diffusion_step: 2
-  num_nodes: 90
+  num_nodes: 46
   num_rnn_layers: 2
   output_dim: 1
   rnn_units: 64

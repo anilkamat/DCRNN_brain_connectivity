@@ -39,7 +39,7 @@ def generate_train_val_test(
     for nSess in Sess_list:  # Iterate through sessions.
         sessiondir = '/session_' + str(nSess) + '/'
         for nSub in Sub_list:  # Iterate through subjects.
-            subfile = input_filename + str(nSub) +'.txt'
+            subfile = input_filename + str(nSub) +'.csv'
             filename =  input_dir + sessiondir + subfile
             print("Load: " + filename)
             timeseries = np.loadtxt(filename, delimiter=",", dtype='float32')
@@ -143,16 +143,16 @@ if __name__ == "__main__":
         "--input_dir", type=str, default="./MRI_data/fMRI_sessions/", help="Directory where fMRI timecourses are stored in, with subdirectories session_1, session_2, etc."
     )
     parser.add_argument(
-        "--input_filename", type=str, default="artificial_timeseries_sub_", help="Names of the fMRI timecourse data."
+        "--input_filename", type=str, default="ET", help="Names of the fMRI timecourse data."
     )
     parser.add_argument(
         "--output_dir", type=str, default="./MRI_data/training_samples/", help="Output directory."
     )
     parser.add_argument(
-        "--NSess", type=int, default="2", help="Specify number of fMRI sessions."
+        "--NSess", type=int, default="3", help="Specify number of fMRI sessions."
     )    
     parser.add_argument(
-        "--NSub", type=int, default="10", help="Specify number of subjects."
+        "--NSub", type=int, default="4", help="Specify number of subjects."
     )    
     parser.add_argument(
         "--input_horizon", type=int, default="30", help="Number of timesteps for model input."
