@@ -9,7 +9,7 @@ log_level: INFO
 model:
   cl_decay_steps: 600
   filter_type: random_walk
-  horizon: 30
+  horizon: 100  #30
   input_dim: 1
   l1_decay: 0
   max_diffusion_step: 2
@@ -17,10 +17,10 @@ model:
   num_rnn_layers: 2
   output_dim: 1
   rnn_units: 64
-  seq_len: 30
+  seq_len: 100 #30
   use_curriculum_learning: true
 train:
-  base_lr: 0.1
+  base_lr: 0.01
   dropout: 0
   epoch: 0
   epochs: 70 #70
