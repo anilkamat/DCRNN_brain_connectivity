@@ -155,10 +155,10 @@ if __name__ == "__main__":
         "--NSub", type=int, default="4", help="Specify number of subjects."
     )    
     parser.add_argument(
-        "--input_horizon", type=int, default="30", help="Number of timesteps for model input."
+        "--input_horizon", type=int, default="100", help="Number of timesteps for model input."
     )     
     parser.add_argument(
-        "--output_horizon", type=int, default="30", help="Number of timesteps for model forecasting horizon."
+        "--output_horizon", type=int, default="100", help="Number of timesteps for model forecasting horizon."
     )     
     parser.add_argument(
         "--perturbations", '--list', nargs='+', default=None, help="List of ROIs with perturbation."
