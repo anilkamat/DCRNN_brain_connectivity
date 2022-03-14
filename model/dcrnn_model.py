@@ -52,6 +52,9 @@ class DCRNNModel(object):
         decoding_cells = [cell] * (num_rnn_layers - 1) + [cell_with_projection]
         print(f'decoding cells: {decoding_cells}')
         encoding_cells = tf.contrib.rnn.MultiRNNCell(encoding_cells, state_is_tuple=True)
+        whole_sequence = encoding_cells
+        query_value_attenteion_seq = tf.keras.layers.Attention()([whole_sequence, whole_sequence])
+
         decoding_cells = tf.contrib.rnn.MultiRNNCell(decoding_cells, state_is_tuple=True)
 
         global_step = tf.train.get_or_create_global_step()
