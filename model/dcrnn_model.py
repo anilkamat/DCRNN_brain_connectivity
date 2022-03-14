@@ -52,8 +52,8 @@ class DCRNNModel(object):
         decoding_cells = [cell] * (num_rnn_layers - 1) + [cell_with_projection]
         print(f'decoding cells: {decoding_cells}')
         encoding_cells = tf.contrib.rnn.MultiRNNCell(encoding_cells, state_is_tuple=True)
-        whole_sequence = encoding_cells
-        query_value_attenteion_seq = tf.keras.layers.Attention()([whole_sequence, whole_sequence])
+        #whole_sequence = encoding_cells
+        #query_value_attenteion_seq = tf.keras.layers.Attention()([whole_sequence, whole_sequence])
 
         decoding_cells = tf.contrib.rnn.MultiRNNCell(decoding_cells, state_is_tuple=True)
 
@@ -82,6 +82,7 @@ class DCRNNModel(object):
                 return result
 
             _, enc_state = tf.contrib.rnn.static_rnn(encoding_cells, inputs, dtype=tf.float32)
+            print(f'enc state {enc_state}')
             outputs, final_state = legacy_seq2seq.rnn_decoder(labels, enc_state, decoding_cells,
                                                               loop_function=_loop_function)
 
