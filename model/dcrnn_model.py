@@ -47,7 +47,9 @@ class DCRNNModel(object):
         cell_with_projection = DCGRUCell(rnn_units, adj_mx, max_diffusion_step=max_diffusion_step, num_nodes=num_nodes,
                                          num_proj=output_dim, filter_type=filter_type)
         encoding_cells = [cell] * num_rnn_layers
+        print(r'encoding cells: {encoding_cells}')
         decoding_cells = [cell] * (num_rnn_layers - 1) + [cell_with_projection]
+        print(r'decoding cells: {decoding_cells}')
         encoding_cells = tf.contrib.rnn.MultiRNNCell(encoding_cells, state_is_tuple=True)
         decoding_cells = tf.contrib.rnn.MultiRNNCell(decoding_cells, state_is_tuple=True)
 
@@ -71,6 +73,8 @@ class DCRNNModel(object):
                 else:
                     # Return the prediction of the model in testing.
                     result = prev
+
+                print(r'result :{result}')
                 return result
 
             _, enc_state = tf.contrib.rnn.static_rnn(encoding_cells, inputs, dtype=tf.float32)
