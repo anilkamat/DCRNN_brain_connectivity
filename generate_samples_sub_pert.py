@@ -152,7 +152,7 @@ if __name__ == "__main__":
         "--NSess", type=int, default="1", help="Specify number of fMRI sessions."
     )    
     parser.add_argument(
-        "--NSub", type=int, default="38", help="Specify number of subjects."
+        "--NSub", type=int, default="1", help="Specify number of subjects."
     )    
     parser.add_argument(
         "--input_horizon", type=int, default="40", help="Number of timesteps for model input."
