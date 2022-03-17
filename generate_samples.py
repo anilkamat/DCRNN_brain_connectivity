@@ -132,6 +132,7 @@ def generate_train_val_test(
 
 def main(args):
     print("Generating training data.")
+    print(args.perturbations)
     generate_train_val_test(input_dir=args.input_dir, input_filename=args.input_filename, output_dir=args.output_dir, 
                             NSess=args.NSess, NSub=args.NSub, input_horizon=args.input_horizon, output_horizon=args.output_horizon,
                             perturbations=args.perturbations)
@@ -163,5 +164,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--perturbations", '--list', nargs='+', default=None, help="List of ROIs with perturbation."
     )      
+    
     args = parser.parse_args()
+
     main(args)
