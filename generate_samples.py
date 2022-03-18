@@ -144,7 +144,7 @@ if __name__ == "__main__":
         "--input_dir", type=str, default="./MRI_data/fMRI_sessions/", help="Directory where fMRI timecourses are stored in, with subdirectories session_1, session_2, etc."
     )
     parser.add_argument(
-        "--input_filename", type=str, default="E", help="Names of the fMRI timecourse data."
+        "--input_filename", type=str, default="Subj", help="Names of the fMRI timecourse data."
     )
     parser.add_argument(
         "--output_dir", type=str, default="./MRI_data/training_samples/", help="Output directory."
@@ -153,13 +153,13 @@ if __name__ == "__main__":
         "--NSess", type=int, default="1", help="Specify number of fMRI sessions."
     )    
     parser.add_argument(
-        "--NSub", type=int, default="38", help="Specify number of subjects."
+        "--NSub", type=int, default="57", help="Specify number of subjects."
     )    
     parser.add_argument(
-        "--input_horizon", type=int, default="40", help="Number of timesteps for model input."
+        "--input_horizon", type=int, default="30", help="Number of timesteps for model input."
     )     
     parser.add_argument(
-        "--output_horizon", type=int, default="40", help="Number of timesteps for model forecasting horizon."
+        "--output_horizon", type=int, default="30", help="Number of timesteps for model forecasting horizon."
     )     
     parser.add_argument(
         "--perturbations", '--list', nargs='+', default=None, help="List of ROIs with perturbation."
