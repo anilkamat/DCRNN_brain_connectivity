@@ -84,7 +84,7 @@ class DCRNNModel(object):
             _, enc_state = tf.contrib.rnn.static_rnn(encoding_cells, inputs, dtype=tf.float32)
             whole_sequence = enc_state
             query_value_attenteion_seq = tf.keras.layers.Attention()([whole_sequence, whole_sequence])
-            query_value_attenteion_seq = tf.reshape(query_value_attenteion_seq,[32,2,2944] )
+            query_value_attenteion_seq = tf.reshape(query_value_attenteion_seq,[50,2,2944] )
             query_value_attention = tf.keras.layers.GlobalAveragePooling1D()(query_value_attenteion_seq )
 
             print(f'query_value_attenteion_seq : {query_value_attenteion_seq}')
